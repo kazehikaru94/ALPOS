@@ -4,12 +4,16 @@
  "https://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.spring.sample.entity.Category" table="category">
+	<class name="alpos.entity.Rating" table="rating">
     	<id name="id" column="id" type="int">
      		<generator class="native"></generator>
     	</id>
 
-		<property name="name" column="name" type="string"></property>
+		<property name="userId" column="user_id" type="int"></property>
+		<property name="bookId" column="book_id" type="int"></property>
+		<property name="point" column="point" type="int"></property>
+
+
   </class>
 
 </hibernate-mapping>  

@@ -4,12 +4,15 @@
  "https://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.spring.sample.entity.Author" table="author">
+	<class name="alpos.entity.Publisher" table="publisher">
     	<id name="id" column="id" type="int">
      		<generator class="native"></generator>
     	</id>
 
 		<property name="name" column="name" type="string"></property>
+		<property name="address" column="address" type="string"></property>
+		<property name="phoneNumber" column="phone_number" type="string"></property>
+
 
   </class>
 

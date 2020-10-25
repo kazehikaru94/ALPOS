@@ -4,12 +4,13 @@
  "https://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.spring.sample.entity.BlackList" table="blacklist">
+	<class name="alpos.entity.Like" table="like">
     	<id name="id" column="id" type="int">
      		<generator class="native"></generator>
     	</id>
 
 		<property name="reviewId" column="review_id" type="int"></property>
+
   </class>
 
 </hibernate-mapping>  
