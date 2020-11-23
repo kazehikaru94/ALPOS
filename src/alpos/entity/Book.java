@@ -11,10 +11,19 @@ public class Book implements Serializable {
     private Integer categoryId;
     private Integer releaseYear;
     private User user;
-	private Author author;
-    private Publisher publisher;
-    private Category category;
 
+    private Category category;
+    private Publisher publisher;
+    private Author author;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public User getUser() {
         return user;

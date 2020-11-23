@@ -28,6 +28,15 @@ public class BookServiceImp implements BookService {
     @Autowired
     private BookDAO bookDao;
 
+    @Autowired
+    private AuthorDAO authorDao;
+
+    @Autowired
+    private CategoryDAO categoryDao;
+
+    @Autowired
+    private PublisherDAO publisherDao;
+
 	public BookDAO getBookDao() {
 		return bookDao;
 	}
@@ -39,6 +48,28 @@ public class BookServiceImp implements BookService {
     public AuthorDAO getAuthorDao() {
 		return authorDao;
 	}
+
+    public void setAuthorDao(AuthorDAO authorDao) {
+        this.authorDao = authorDao;
+    }
+
+    public CategoryDAO getCategoryDao() {
+        return categoryDao;
+    }
+
+    public void setCategoryDao(CategoryDAO categoryDao) {
+        this.categoryDao = categoryDao;
+    }
+
+    public PublisherDAO getPublisherDao() {
+        return publisherDao;
+    }
+
+    public void setPublisherDao(PublisherDAO publisherDao) {
+        this.publisherDao = publisherDao;
+    }
+
+
 
     private BookServiceImp() {
     }
@@ -54,6 +85,7 @@ public class BookServiceImp implements BookService {
             condition.setPublisherId(bookModel.getPublisherId());
             condition.setCategoryId(bookModel.getCategoryId());
             condition.setReleaseYear(bookModel.getReleaseYear());
+            condition.setImage(bookModel.getImage());
             Book book = bookDao.makePersistent(condition);
             bookModel = new BookModel();
             BeanUtils.copyProperties(book, bookModel);
@@ -63,35 +95,7 @@ public class BookServiceImp implements BookService {
             throw e;
         }
     }
-	
-	public void setAuthorDao(AuthorDAO authorDao) {
-		this.authorDao = authorDao;
-	}
 
-	public CategoryDAO getCategoryDao() {
-		return categoryDao;
-	}
-
-	public void setCategoryDao(CategoryDAO categoryDao) {
-		this.categoryDao = categoryDao;
-	}
-
-	public PublisherDAO getPublisherDao() {
-		return publisherDao;
-	}
-
-	public void setPublisherDao(PublisherDAO publisherDao) {
-		this.publisherDao = publisherDao;
-	}
-
-	@Autowired
-	private AuthorDAO authorDao;
-	
-	@Autowired
-	private CategoryDAO categoryDao;
-	
-	@Autowired
-	private PublisherDAO publisherDao;
 	
 	@Transactional(readOnly = true)
 	public List<BookModel> findAll(){
@@ -124,4 +128,33 @@ public class BookServiceImp implements BookService {
 		
 		return bookModels;
 	}
+
+
+    @Transactional(readOnly = true)
+    public BookModel findBook(Integer id) {
+        log.info("Checking the book in the database");
+        try {
+            Book book = bookDao.findBookById(id);
+            BookModel bookModel = new BookModel();
+            if (book != null) {
+                BeanUtils.copyProperties(book, bookModel);
+
+                AuthorModel authorModel = new AuthorModel();
+                BeanUtils.copyProperties(book.getAuthor(), authorModel);
+                bookModel.setAuthor(authorModel);
+
+                PublisherModel publisherModel = new PublisherModel();
+                BeanUtils.copyProperties(book.getPublisher(), publisherModel);
+                bookModel.setPublisher(publisherModel);
+
+                CategoryModel categoryModel = new CategoryModel();
+                BeanUtils.copyProperties(book.getCategory(), categoryModel);
+                bookModel.setCategory(categoryModel);
+            }
+            return bookModel;
+        } catch (Exception e) {
+            log.error("An error occurred while fetching the book details from the database", e);
+            return null;
+        }
+    }
 }

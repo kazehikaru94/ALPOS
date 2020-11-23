@@ -7,11 +7,10 @@
   <title th:replace="${title}">[[#{meta.title}]]</title>
   <meta name="description" th:attr="content=#{meta.description}" />
   <meta name="keywords" th:attr="content=#{meta.keywords}" />
+  <meta charset="utf-8"/>
   <!-- <sec:csrfMetaTags ></sec:csrfMetaTags> -->
 	<!-- default header name is X-CSRF-TOKEN -->
 
-
-	
   <!-- Common styles and scripts -->
   <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}">
   <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap-theme.min.css}">
@@ -26,6 +25,316 @@
   <link rel="shortcut icon" th:href="@{/resources/img/favicon.ico}">
 
   <th:block th:replace="${links}" />
+
+  <style>
+    :root {
+      font-size: 10px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Open Sans", Arial, sans-serif;
+      min-height: 100vh;
+      background-color: #fafafa;
+      color: #262626;
+      padding-bottom: 3rem;
+    }
+
+    /* Profile */
+    .profile {
+      margin-top: 1%;
+      margin-left: 3%;
+      margin-right: 3%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .edit-btn{
+      border: none;
+      color: white;
+      padding: 12px 28px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    .edit-btn {
+      background-color: white;
+      color: black;
+      border: 2px solid #f44336;
+    }
+
+    .edit-btn:hover {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .viral-rate {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .review {
+      margin-left: 14%;
+    }
+
+    .img-detail{
+        width: 18%;
+        height: 220px;
+        margin-right: 8%;
+    }
+
+    .img-main {
+      margin-top: 5%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+
+    a.one:link {color:#ff0000; text-decoration: none;}
+    a.one:visited {color: #777777;}
+    a.one:hover {color: lightpink;}
+
+
+    .my-activity {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .left-activity{
+
+    }
+
+    .right-activity{
+      margin-left: 10%;
+    }
+
+
+    /** Header style css **/
+    .footer {
+      display: flex;
+      flex-direction: row;
+      background-color: #f5dcdc;
+      margin-left: -6%;
+      margin-right: -6%;
+      height: 200px;
+      color: #222222;
+    }
+
+    footer a{
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: coral;
+      text-decoration: none;
+    }
+
+    .footer-title {
+      margin-bottom: 5%;
+    }
+
+    .footer-1 {
+      margin-top: 2%;
+      margin-left: 8%;
+    }
+
+    .footer-2 {
+      margin-top: 2%;
+      margin-left: 8%;
+    }
+
+    .footer-3 {
+      margin-top: 2%;
+      margin-left: 8%;
+    }
+
+    .footer-4 {
+      margin-top: 2%;
+      margin-top: 3%;
+      margin-left: 12%;
+    }
+
+    .footer-content-1 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-content-2{
+      display: flex;
+      flex-direction: column;
+      margin-left: 5%;
+    }
+
+
+    /** end **/
+
+
+    /** header **/
+    .header-logo img{
+      width: 50px;
+      height: auto;
+      margin-left: 90%;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      background-color: #f5dcdc;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: row;
+      margin-left: 53%;
+
+    }
+
+    .remember {
+      display: flex;
+      flex-direction: row;
+      margin-top: -2%;
+      color: whitesmoke;
+    }
+
+    .forgot {
+      margin-top: -2%;
+    }
+
+    .header1-1 {
+      margin-top: 2%;
+    }
+
+    .header1-2 {
+      margin-top: 2%;
+      margin-left: 5%;
+    }
+
+
+    .search {
+      width: 100%;
+      position: relative;
+      display: flex;
+    }
+
+    .searchTerm {
+      width: 100%;
+      border: 3px solid #00B4CC;
+      border-right: none;
+      padding: 5px;
+      height: 36px;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      color: #9DBFAF;
+    }
+
+    .searchTerm:focus{
+      color: #00B4CC;
+    }
+
+    .searchButton {
+      width: 40px;
+      height: 36px;
+      border: 1px solid #00B4CC;
+      background: #00B4CC;
+      text-align: center;
+      color: #fff;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    /*Resize the wrap to see the search bar change!*/
+    .wrap{
+      width: 15%;
+      position: absolute;
+      top: 38%;
+      left: 25%;
+      transform: translate(-50%, -50%);
+    }
+
+    .header-icon{
+      margin-left: 70%;
+      margin-top: 0.7%;
+      width: 40%;
+    }
+
+
+    .header-icon-2{
+      margin-left: 4%;
+    }
+
+    .header-icon-3{
+      margin-left: 4%;
+    }
+
+    .header-icon-4{
+      margin-left: 4%;
+    }
+
+    .user-name {
+      list-style-type: none;
+      margin-left: -23%;
+      margin-top: 1%;
+      tab-size: 20px;
+    }
+
+    .header-cont{
+      margin-left: 55%;
+      display: flex;
+      margin-top: 0.2%;
+    }
+
+
+    .header-password{
+      margin-left: 1%;
+    }
+
+    .header-submit{
+      color: #008CBA;
+      margin-left: 1%;
+    }
+
+    .header-submit-cont{
+      transition-duration: 0.4s;
+      cursor: pointer;
+      background-color: white;
+      color: black;
+      border: 2px solid #008CBA;
+    }
+
+    .header-submit-cont:hover {
+      background-color: #008CBA;
+      color: white;
+    }
+
+
+
+    /** login successful **/
+    .search {
+      display: flex;
+      flex-direction: row;
+      margin-left: 100%;
+      margin-top: 7%;
+      width: 200%;
+    }
+
+    .search input {
+        padding: 1;
+    }
+
+  </style>
 </head>
 <body>
   <div >
@@ -43,3 +352,5 @@
   </div>  
 </body>
 </html>
+
+

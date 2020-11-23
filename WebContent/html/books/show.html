@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html
+        th:replace="~{templates/layout :: layout(~{::title}, ~{::body}, ~{})}"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{book.show.title}">Book Information</title>
+</head>
+<body>
+<div class="container">
+    <div class="profile">
+        <div class="profile-image">
+            <img style="width: 70%; height: auto;" th:if="${book.attached}" th:src="${#viewSupport.getImageUrl(book.image)}" alt="">
+            <button class="edit-btn" style="margin-top: 7%; margin-left: 10%; justify-content: center;" >Add book to bookself</button>
+        </div>
+        <div class="user-settings">
+            <h1 class="user-name">[[${book.name}]]</h1>
+            <h1 style="font-size: 20px;">By [[${book.author.name}]] </h1>
+
+        <div class="profile-stats">
+
+            <ul style=" list-style-type: none; font-size: 20px; margin-top: 10%; margin-left: -5%;" >
+                <li style="margin-top: 5%;"><span class="profile-stat-count"><img style="width: 20px; height: 20px;" src="https://www.flaticon.com/svg/static/icons/svg/2360/2360068.svg"> Publisher: </span> [[${book.publisher.name}]]</li>
+                <li style="margin-top: 5%;"><span class="profile-stat-count"><img style="width: 20px; height: 20px;" src="https://www.flaticon.com/svg/static/icons/svg/1174/1174008.svg"> Category: </span> [[${book.category.name}]]</li>
+                <li style="margin-top: 5%;"><span class="profile-stat-count"><img style="width: 20px; height: 20px;" src="https://www.flaticon.com/svg/static/icons/svg/3301/3301542.svg"> Release year:</span> [[${book.releaseYear}]]</li>
+            </ul>
+        </div>
+
+        <div class="viral-rate">
+            <div>
+                <h3><img style="width: 20px; height: 20px;" src="https://www.flaticon.com/svg/static/icons/svg/616/616489.svg"> Rating: 3.94</h3>
+                <br>
+                <a class="one" href="#">Rating detail ...</a>
+            </div>
+            <div class="review">
+                <h3><img style="width: 20px; height: 20px;" src="https://www.flaticon.com/svg/static/icons/svg/3270/3270320.svg"> Review: 532,267</h3>
+            </div>
+        </div>
+    </div>
+</div>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray; width: 100%">
+<div class="img-main">
+    <img class="img-detail" src="https://images-na.ssl-images-amazon.com/images/I/71QKQ9mwV7L.jpg">
+    <img class="img-detail" src="https://images-na.ssl-images-amazon.com/images/I/51pCXWFd7CL.jpg">
+    <img class="img-detail" src="https://images-na.ssl-images-amazon.com/images/I/413R2vCAcLL.jpg">
+</div>
+
+
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray; width: 100%; margin-top: 5%;">
+    <h3 style="margin-top: 5%;">My Activity</h3>
+<div class="my-activity" style="margin-top: 3%">
+    <div class="left-activity">
+        <h4>Review of</h4>
+        <h4>Rating</h4>
+        <h4>Review</h4>
+    </div>
+    <div class="right-activity">
+        <h4>The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life (ebook)</h4>
+        <h4>-----</h4>
+        <button class="edit-btn" style="justify-content: center; padding: 4px 12px;" >Write a review</button>
+    </div>
+</div>
+
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray; width: 100%; margin-top: 5%;">
+    <h3 style="margin-top: 5%;">COMMUNITY REVIEWS</h3>
+<div>
+
+</div>
+</div>
+
+
+</body>
+</html>
