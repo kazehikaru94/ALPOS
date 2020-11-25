@@ -5,69 +5,88 @@ import java.util.Date;
 import java.util.List;
 
 public class User implements Serializable {
-    private Integer id;
-    private String name;
-    private Date dateOfBirth;
-    private String email;
-    private String password;
-    private List<Book> books;
+	private Integer id;
+	private String name;
+	private Date dateOfBirth;
+	private String email;
+	private String password;
+	private List<Book> books;
+	private String image;
 
-    public List<Book> getBooks() {
-        return books;
-    }
+	public String getImage() {
+		return image;
+	}
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
+	public void setImage(String image) {
+		this.image = image;
+	}
 
-    public User() {
-    }
+	private Integer role;
 
-    public User(Integer id, String name, Date dateOfBirth, String email, String password) {
-        this.id = id;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.email = email;
-        this.password = password;
-    }
+	public List<Book> getBooks() {
+		return books;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public void setBooks(List<Book> books) {
+		this.books = books;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public User() {
+	}
 
-    public String getName() {
-        return name;
-    }
+	public User(Integer id, String name, Date dateOfBirth, String email, String password) {
+		this.id = id;
+		this.name = name;
+		this.dateOfBirth = dateOfBirth;
+		this.email = email;
+		this.password = password;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Integer getRole() {
+		return role;
+	}
+
+	public void setRole(Integer role) {
+		this.role = role;
+	}
 }
