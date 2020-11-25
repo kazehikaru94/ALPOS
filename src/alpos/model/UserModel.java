@@ -17,8 +17,8 @@ public class UserModel {
 	@NotEmpty(message = "{user.validation.name.required}")
 	@Size(max = 64, message = "{user.validation.name.max}")
 	private String name;
-	@NotEmpty(message = "{user.validation.email.required}")
 	private Date dateOfBirth;
+	@NotEmpty(message = "{user.validation.email.required}")
 	@Email(message = "{pattern.email}")
 	private String email;
 	@NullOrNotBlank(message = "{user.validation.password.required}")
