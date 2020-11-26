@@ -20,18 +20,18 @@ import javax.validation.constraints.Size;
 public class UserModel {
 
 	private Integer id;
-	@NotEmpty(message = "{user.validation.name.required}")
-	@Size(max = 64, message = "{user.validation.name.max}")
+//	@NotEmpty(message = "{user.validation.name.required}")
+//	@Size(max = 64, message = "{user.validation.name.max}")
 	private String name;
-	@NotNull(message = "{user.validation.date.required}")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+//	@NotNull(message = "{user.validation.date.required}")
+//	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateOfBirth;
-	@Email(message = "{pattern.email}")
+//	@Email(message = "{pattern.email}")
 	private String email;
-	@NullOrNotBlank(message = "{user.validation.password.required}")
+//	@NullOrNotBlank(message = "{user.validation.password.required}")
 	@Size(max = 64, min = 6, message = "{user.validation.password.length}")
 	private String password;
-	@NullOrNotBlank(message = "{user.validation.confirmation.required}")
+//	@NullOrNotBlank(message = "{user.validation.confirmation.required}")
 	private String confirmation = null;
 	private Long reviewNumbers = null;
 	private Long followers = null;
