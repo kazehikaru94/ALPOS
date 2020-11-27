@@ -130,7 +130,10 @@ public class BookController {
 
 	
 	@PostMapping(value="/reviews/add")
-	public String addReview (@ModelAttribute("review") ReviewModel reviewModel, HttpServletRequest request) {
+	public String addReview (@ModelAttribute("review") @Validated ReviewModel reviewModel, BindingResult bindingResult, HttpServletRequest request) {
+		if (bindingResult.hasErrors()) {
+			return "redirect: " + request.getContextPath() + "/books/" + reviewModel.getBookId();
+		}
 		reviewModel.setHashtags(reviewService.getHashtagFromReviewContent(reviewModel.getContent()));
 		reviewService.addReview(reviewModel);
 		return "redirect: " + request.getContextPath() + "/books/" + reviewModel.getBookId();

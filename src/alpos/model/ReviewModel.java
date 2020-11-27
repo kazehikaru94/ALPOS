@@ -2,12 +2,16 @@ package alpos.model;
 
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+
+
 import alpos.entity.Hashtag;
 
 public class ReviewModel extends BaseModel {
     private Integer id;
     private Integer userId;
     private Integer bookId;
+    @NotEmpty (message="{review.validation.no.content}")
     private String  content;
     private List<Hashtag> hashtags;
     
